@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
 
-// הגדרת קליינט Supabase
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
@@ -14,7 +13,6 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [saved, setSaved] = useState(false);
 
-  // יצירת מתכון באמצעות Gemini
   const generateRecipe = async () => {
     if (!ingredients.trim()) return;
     setLoading(true);
@@ -54,7 +52,6 @@ export default function Home() {
     }
   };
 
-  // שמירת מתכון ב-Supabase
   const saveRecipe = async () => {
     if (!recipe) return;
     try {
